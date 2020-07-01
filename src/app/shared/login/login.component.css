@@ -1,0 +1,8 @@
+.mat-card {
+    max-width: 300px;;
+    margin: auto;
+}
+.page {
+    height: fit-content;
+    width: fit-content;
+}

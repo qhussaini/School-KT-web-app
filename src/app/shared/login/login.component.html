@@ -1,0 +1,45 @@
+<!-- <app-header-admin pageTitle="Login" imageUrl="dashboard" helpType="homepage"></app-header-admin> -->
+<mat-card>
+  <!-- <mat-card-header>
+    <mat-card-title>
+      <mat-icon>admin_panel_settings</mat-icon>Kids Town</mat-card-title>
+    <mat-card-subtitle>School Management App</mat-card-subtitle>
+  </mat-card-header> -->
+  <div *ngIf="afAuth.user | async as user; else showLogin">
+<app-header-admin pageTitle="Login" imageUrl="dashboard" helpType="homepage"></app-header-admin>
+
+    Welcome {{ user.displayName }} !!!
+    <span class="small-spacer"></span>
+    <img src="{{ user.photoURL }}" *ngIf="user.photoURL" width="50px" height="50px">
+    <br/><br/>
+    <button type="button" (click)="logout()" mat-raised-button color="primary">Logout</button>
+    <br/><br/>
+    <button type="button" routerLink="/settings" mat-raised-button color="primary">Update Profile</button>
+  </div>
+  <ng-template #showLogin>
+  <mat-card-content >
+    <mat-divider></mat-divider>
+    <app-logintabs></app-logintabs>    
+    </mat-card-content>
+
+    <!-- <mat-card-content *ngIf="socialAuth">
+    <mat-chip-list class="mat-chip-list-stacked" style="margin-left: 170px;">
+      <mat-chip color="primary" selected="true" (click)="login('FB')">
+        Login With Facebook
+      </mat-chip>
+      <mat-chip color="warn" selected="true" (click)="login('GOOGLE')">
+        Login With Google
+      </mat-chip>
+    </mat-chip-list>
+  </mat-card-content> -->
+
+
+
+  <mat-card-actions>
+    <mat-divider></mat-divider>
+    <button mat-button routerLink="/signup" class="small-headline">No account?
+        <strong>Create one with your email here</strong>
+    </button>
+  </mat-card-actions>
+  </ng-template>
+</mat-card>

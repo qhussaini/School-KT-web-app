@@ -1,0 +1,116 @@
+<div class="login-page">
+    <mat-card class="mat-elevation-z12" *ngIf="!savedChanges else showSavedChangesCard" >
+        <mat-card-title style="text-align:center;">
+          <mat-icon>admin_panel_settings</mat-icon>Kids Town</mat-card-title>
+        <mat-card-subtitle style="text-align: center;">School Management App</mat-card-subtitle>
+
+  <mat-card-content>
+    <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+      <mat-card-title style="text-align: center;">
+        <span class="small-headline">Create Account</span>
+        <span class="small-spacer"></span>
+        <a [routerLink]="['/login']" color="primary">
+          <mat-icon>backspace</mat-icon>
+        </a>
+      </mat-card-title>
+      <mat-card-actions align="start" *ngIf="error">
+        <mat-error>User ID is already taken.</mat-error>
+      </mat-card-actions>
+      <mat-form-field appearance="outline">
+        <mat-label>User Name</mat-label>
+        <input
+          matInput
+          placeholder="User Name"
+          required
+          name="username"
+          ngModel
+          #username="ngModel">
+        <mat-icon matSuffix>perm_identity</mat-icon>
+        <mat-error
+          *ngIf="username.invalid">
+          Username is required
+        </mat-error>
+
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          placeholder="Email"
+          required
+          name="email"
+          #email="ngModel"
+          ngModel required email>
+          <mat-error *ngIf="email.invalid">Email is required</mat-error>
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline" 
+        matTooltip="click Lock to see Password"
+        matTooltipPosition="after" 
+        matTooltipShowDelay='600'>
+        <mat-label>Password</mat-label>
+        <input 
+          matInput
+          placeholder="Password"
+          type="password"
+          required
+          minlength="6"
+          maxlength="30"
+          name="password"
+          ngModel
+          #password="ngModel">
+          <mat-error
+            *ngIf="password.errors && password.errors.required">
+            Password is required
+          </mat-error>
+          <mat-error
+            *ngIf="password.errors && password.errors.minlength">
+            Password must be of length 6
+          </mat-error>
+        <mat-icon matSuffix item-end (click)="passwordAction()">{{showPassword ? 'lock_open' : 'lock'}}</mat-icon>
+      </mat-form-field>
+      <button
+      type="submit"
+      [disabled]="!formData.valid"
+       mat-raised-button
+       color="primary"
+       class="login-button">
+       Sign Up
+     </button>
+     <span *ngIf="password.invalid && (password.dirty || password.touched)">
+       <mat-error *ngIf="password.errors['required']">Password is Required.</mat-error>
+       <mat-error *ngIf="password.errors['minlength']">Password can't be less than 5 characters.</mat-error>
+       <mat-error *ngIf="password.errors['maxlength']">Password can't be more than 30 characters.</mat-error>
+     </span>
+   </form>
+   <mat-card-actions *ngIf="error">
+       <mat-error>Login credentials are not verified. Here is the error: {{ error }}</mat-error>
+     </mat-card-actions>
+ </mat-card-content>
+      <mat-card-actions style="text-align: center;">
+        <mat-divider></mat-divider>
+        <button mat-button routerLink="/login" >Already have an account?
+            <strong>Login with your email here</strong>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <ng-template #showSavedChangesCard>
+<app-header-admin pageTitle="Sign Up" imageUrl="fiber_new" helpType="homepage"></app-header-admin>
+    <br>
+    <br>
+    <br>
+    <br>
+    <mat-error>
+      A New userId is created. Plese login back with your emailid and password.
+    </mat-error>
+    <br>
+    <br>
+    <br>
+    <br>
+    <mat-card-actions align="start">
+      <button type="button" (click)="savedChanges=false;routeLoginPage();" mat-raised-button color="primary">Close</button>
+    </mat-card-actions>
+  </ng-template>
+
+  

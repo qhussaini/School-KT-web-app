@@ -1,0 +1,42 @@
+.login-page {
+    top: 0;
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: fit-content;
+    display: block;
+    background-image: url(../../../assets/img/background-purple-color.jpg);
+    /* background-image: url(https://image.freepik.com/free-vector/blurred-background-purple-color_1159-751.jpg); */
+    /* background-color: #303F9F; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  }
+/* .backimage {
+    background-image: url(/src/assets/img/background-color.jpg);
+} */
+  
+  mat-card {
+    width: 30%;
+    margin: 10% auto;
+    border-radius: 8px;
+    background-color: rgba(60, 70, 161, 0.342);
+  }
+  mat-form-field, mat-checkbox {
+    width: 80%;
+    display: block;
+    margin: auto;
+  }
+  mat-card-content {
+    margin-top: 20px;
+  }
+  
+  .login-button {
+    margin-top: 20px;
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+  }
+  
+  

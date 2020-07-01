@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+ html,
+ body {
+     /* width: max-content;
+     height: max-content; */
+    padding: 0;
+    border-spacing: 0mm;
+    background-image: url(/src/assets/img/gradient-texture-color.jpg);
+ }
