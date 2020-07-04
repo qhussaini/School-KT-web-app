@@ -1,6 +1,6 @@
-### Please give a STAR * to this repository if you like this project.
+
 <h2>Online School Management App</h2>
-<h2><a href="https://www.youtube.com/playlist?list=PLp0TENYyY8lHnfxOOzZ_hTnPF8Hh3eKDo">Video Tutorials!</a></h2>
+<h2><a href="https://www.linkedin.com/in/abdul-quyyum-hussaini-763130178/">LinkedIn!</a></h2>
 <h2>This repository is updated to Angular 9.1.4</h2>
 <h2>Tools: </h2>
 <b>front-end:</b> Angular 9.1.4<br/>
